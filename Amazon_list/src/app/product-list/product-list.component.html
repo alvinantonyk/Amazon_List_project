@@ -1,0 +1,22 @@
+<div class="products-listing">
+    <ng-container *ngFor="let product of productData; let idx = index">
+      <div class="product-card" (click)="showProduct(idx)">
+        <img src="{{ product.imgLink }}" alt="" class="product-image" />
+        <div class="product-details">
+          <h3>{{ product.prodName }}</h3>
+          <p class="product-price">$ {{ product.price }}</p>
+          <button class="buy-now-button">Buy Now</button>
+        </div>
+      </div>
+      <div class="product-description" *ngIf="selectedProdIndex === idx">
+        <p>{{ product.description }}</p>
+        <div class="star-rating">{{ product.rating }}&#9733;</div>
+        <button class="buy-now-button">Add To Cart</button>
+      </div>
+  
+      <!-- <p (click)="showProduct(idx)">{{ product.prodName }}</p>
+      <div class="summary" *ngIf="selectedProdIndex === idx">
+        {{ product.price }} : {{ product.description }}
+      </div> -->
+    </ng-container>
+  </div>
